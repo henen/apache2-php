@@ -38,5 +38,6 @@ EXPOSE 80
 #added www volume
 VOLUME ["/var/www","/var/www"]
 VOLUME ["/var/log/apache2","/etc/php5/apache2/"]
-
+#apache start
+CMD ["service apache2 start"]
 CMD ["/bin/bash", "/root/start.bash"]
