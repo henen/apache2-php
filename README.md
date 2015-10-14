@@ -8,7 +8,7 @@ and volume container add
 
 ex)
 1.
-sudo docker run -i -t -p 80:80 -v /home/henen/mysite/:/var/www -v /home/henen/apachelog/:/var/log/apache2 -d henen/apache2-php --link "DbcontainerName":DB /bin/bash 
+sudo docker run -i -t -p 80:80 -v /home/henen/mysite/:/var/www -v /home/henen/apachelog/:/var/log/apache2 -d henen/apache2-php --link "DbcontainerName":db --name a2p5 /bin/bash 
 
 2.
 sudo docker exec "container name" service apache2 start
