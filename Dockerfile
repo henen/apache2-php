@@ -1,7 +1,9 @@
 FROM reinblau/debian
 
 MAINTAINER Tobias Bähr "tobias.baehr@reinblau.de"
-#fixed 2015-10-14 henen yss1503@gmail.com add wwwvolumne
+#fixed 2015-10-14 henen yss1503@gmail.com add volume Setting & mysqli pluginInstall
+
+
 
 ENV APACHE_RUN_USER  www-data
 ENV APACHE_RUN_GROUP www-data
@@ -17,6 +19,7 @@ RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yqq install --
     php5-curl\
     php5-gd\
     php-apc\
+    php5-mysql\
     php5-imagick\
     imagemagick\
     apache2-mpm-prefork\
@@ -38,6 +41,7 @@ EXPOSE 80
 #added www volume
 VOLUME ["/var/www","/var/www"]
 VOLUME ["/var/log/apache2","/etc/php5/apache2/"]
+
+CMD ["/bin/bash", "/root/start.bash"]
 #apache start
 CMD ["service apache2 start"]
-CMD ["/bin/bash", "/root/start.bash"]
